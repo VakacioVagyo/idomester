@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áraink – IdőMester.hu</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6f2ff, #ffffff);
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #0077cc;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #0077cc;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge {
+            background: #ff9800;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .discount {
+            font-size: 0.9rem;
+            color: #0077cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            color: #0077cc;
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #0077cc;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top: auto;
+            font-size: 0.95rem;
+            color: #555;
+            background: #f0f7ff;
+            padding: 12px 15px;
+            border-radius: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Áraink</h1>
+    <p>IdőMester.hu – Válaszd ki a számodra megfelelő megoldást</p>
+</header>
+
+<!-- HAVI ELŐFIZETÉSEK -->
+<section class="section">
+    <h2>Havi előfizetések</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Ingyenes</h3>
+            <div class="price">0 Ft</div>
+            <ul>
+                <li>1 vállalkozói csoport</li>
+                <li>Havi 5 foglalható időpont / fő</li>
+                <li>Email értesítések</li>
+            </ul>
+            <div class="info">Az előfizetéshez jelentkezz be a felhasználói fiókodba!</div>
+        </div>
+
+        <div class="card">
+            <h3>Alap</h3>
+            <div class="price">2 490 Ft / hó</div>
+            <ul>
+                <li>3 vállalkozói csoport</li>
+                <li>Korlátlan időpontfoglalás</li>
+                <li>Email értesítések</li>
+                <li>Google Naptár szinkronizáció</li>
+                <li>15 csoportos esemény / hó</li>
+                <li>Csoportos üzenetküldés</li>
+            </ul>
+            <div class="info">Az előfizetéshez jelentkezz be a felhasználói fiókodba!</div>
+        </div>
+
+        <div class="card">
+            <h3>Prémium</h3>
+            <div class="price">3 990 Ft / hó</div>
+            <ul>
+                <li>Korlátlan vállalkozói csoport</li>
+                <li>Korlátlan időpontfoglalás</li>
+                <li>Email értesítések</li>
+                <li>Google Naptár szinkronizáció</li>
+                <li>Korlátlan csoportos esemény</li>
+                <li>Csoportos üzenetküldés</li>
+                <li>Online és helyszíni fizetés</li>
+            </ul>
+            <div class="info">Az előfizetéshez jelentkezz be a felhasználói fiókodba!</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ÉVES ELŐFIZETÉSEK -->
+<section class="section">
+    <h2>Éves előfizetések</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="badge">⭐ NÉPSZERŰ CSOMAG ⭐</div>
+            <div class="discount">💙 ~33% kedvezmény a havi díjhoz képest</div>
+            <h3>Business</h3>
+            <div class="price">19 990 Ft / év</div>
+            <ul>
+                <li>3 vállalkozói csoport</li>
+                <li>Korlátlan időpontfoglalás</li>
+                <li>Email értesítések</li>
+                <li>Google Naptár szinkronizáció</li>
+                <li>15 csoportos esemény / hó</li>
+                <li>Csoportos üzenetküldés</li>
+            </ul>
+            <div class="info">Az előfizetéshez jelentkezz be a felhasználói fiókodba!</div>
+        </div>
+
+        <div class="card">
+            <div class="badge">⭐ NÉPSZERŰ CSOMAG ⭐</div>
+            <div class="discount">💙 ~27% kedvezmény a havi díjhoz képest</div>
+            <h3>Business Plus</h3>
+            <div class="price">34 990 Ft / év</div>
+            <ul>
+                <li>Korlátlan vállalkozói csoport</li>
+                <li>Korlátlan időpontfoglalás</li>
+                <li>Email értesítések</li>
+                <li>Google Naptár szinkronizáció</li>
+                <li>Korlátlan csoportos esemény</li>
+                <li>Csoportos üzenetküldés</li>
+                <li>Online és helyszíni fizetés</li>
+            </ul>
+            <div class="info">Az előfizetéshez jelentkezz be a felhasználói fiókodba!</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- HIRDETÉSI CSOMAGOK -->
+<section class="section">
+    <h2>Hirdetési csomagok</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Register</h3>
+            <div class="price">29 990 Ft / 60 nap</div>
+            <ul>
+                <li>Megjelenés a regisztrációs oldalon</li>
+                <li><span style="color: blue"><b><i>Korlátozott számban várólistásan elérhető csomag - </i></b></span><b>3 elérhető hirdetési hely</b></li>
+                <li>Hirdetési méret: 50 cm * 14 cm</li>
+            </ul>
+            <div class="info">A hirdetés igényléséhez vedd fel velünk a kapcsolatot a <b>hirdetesidomester@gmail.com </b>email címen!</div>
+        </div>
+
+        <div class="card">
+            <h3>Login</h3>
+            <div class="price">29 990 Ft / 30 nap</div>
+            <ul>
+                <li>Megjelenés a bejelentkezési oldalon</li>
+                <li><span style="color:blue"><b><i>Korlátozott számban várólistásan elérhető csomag -</i></b></span> <b>3 elérhető hirdetési hely</b></li>
+                <li>Hirdetési méret: 50 cm * 14 cm</li>
+            </ul>
+            <div class="info">A hirdetés igényléséhez vedd fel velünk a kapcsolatot a <b>hirdetesidomester@gmail.com </b> email címen!</div>
+        </div>
+
+        <div class="card">
+            <h3>Prime</h3>
+            <div class="price">39 990 Ft / 30 nap</div>
+            <ul>
+                <li>Exkluzív megjelenés a főoldalon</li>
+                <li><span style="color: blue;"><b><i>Korlátozott számban várólistásan elérhető csomag -</i></b></span><b>1 elérhető hirdetési hely</b></li>
+                <li>Hirdetési méret: 50 cm * 14 cm</li>
+            </ul>
+            <div class="info">A hirdetés igényléséhez vedd fel velünk a kapcsolatot a <b>hirdetesidomester@gmail.com </b>email címen!</div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 IdőMester.hu – Az idő a kezedben.
+</footer>
+
+</body>
+</html>

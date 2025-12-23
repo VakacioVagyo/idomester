@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regisztráció – IdőMester.hu</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e6f2ff, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    display: flex;
+    overflow: hidden;
+}
+
+/* BAL OLDAL – HIRDETÉSEK */
+.left {
+    flex: 1;
+    background: #f4f9ff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.ad img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #d0e6ff;
+}
+
+/* JOBB OLDAL – FORM */
+.right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right h1 {
+    color: #0077cc;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #0077cc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+.switch {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.switch a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a {
+    color: blue;
+}
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- BAL OLDAL -->
+    <div class="left">
+        <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
+        <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
+        <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
+    </div>
+
+    <!-- JOBB OLDAL -->
+    <div class="right">
+        <h1>Regisztráció</h1>
+
+        <form>
+            <input type="text" placeholder="Teljes név" required>
+            <input type="email" placeholder="Email cím" required>
+            <input type="password" placeholder="Jelszó" required>
+            <input type="password" placeholder="Jelszó megerősítése" required>
+
+            <!-- SZEREPKÖR LEGALUL -->
+            <select required>
+                <option value="">Válasszon szerepkört</option>
+                <option value="felhasznalo">Felhasználó</option>
+                <option value="vallalkozo">Vállalkozó</option>
+            </select>
+
+            <button type="submit">Regisztráció</button>
+        </form>
+
+        <div class="switch">
+            Van már fiókja? <a href="bejelentkezes.html">Jelentkezzen be!</a>
+        </div>
+<br>
+        <a href="araink.html"><b><i>Tekintsd meg az árainkat!</i></b></a>
+    </div>
+
+</div>
+
+</body>
+</html>
