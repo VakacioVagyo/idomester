@@ -47,7 +47,7 @@ body {
     height: auto;
     max-height: 140px;
     object-fit: contain;
-    border-radius: 12px; /* csak lekerekítés marad */
+    border-radius: 12px;
 }
 
 /* JOBB OLDAL – FORM */
@@ -104,19 +104,65 @@ button:hover {
     font-weight: bold;
 }
 
-        a  {
-            color: blue;
-        }
+a {
+    color: blue;
+}
 
-@media (max-width: 900px) {
+/* 🔵 MOBILBARÁT – SCROLLMENTES NÉZET */
+@media (max-width: 600px) {
+
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .container {
-        flex-direction: column;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .left, .right {
+        padding: 15px;
+    }
+
+    .left {
+        gap: 10px;
     }
 
     .ad img {
-        max-height: none;
+        max-height: 80px;
+    }
+
+    .right h1 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    input, select {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .switch {
+        margin-top: 10px;
+        font-size: 0.85rem;
+    }
+
+    a {
+        font-size: 0.85rem;
     }
 }
+
 </style>
 </head>
 <body>
@@ -131,19 +177,21 @@ button:hover {
     <div class="right">
         <h1>Bejelentkezés</h1>
 
-        <form>
-            <input type="email" placeholder="Email cím" required>
-            <input type="password" placeholder="Jelszó" required>
+        <!-- PHP-hoz kötött űrlap -->
+        <form method="post" action="bejelentkezes.php">
+            <input type="email" name="email" placeholder="Email cím" required>
+            <input type="password" name="jelszo" placeholder="Jelszó" required>
             <button type="submit">Bejelentkezés</button>
         </form>
 
         <div class="switch">
             Nincs fiókja? <a href="regisztracio.html">Regisztráljon itt!</a>
         </div>
-        <br>
-<a href="araink.html"><b><i>Tekintse meg árainkat!</i></b></a>
-    </div>
 
+        <br>
+
+        <a href="araink.html"><b><i>Tekintse meg árainkat!</i></b></a>
+    </div>
 
 </div>
 

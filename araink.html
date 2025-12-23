@@ -62,7 +62,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
         }
 
         .badge {
@@ -75,6 +74,25 @@
             margin-bottom: 6px;
         }
 
+        .sale {
+            color: #d60000;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .old-price {
+            color: #d60000;
+            text-decoration: line-through;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
         .discount {
             font-size: 0.9rem;
             color: #0077cc;
@@ -82,16 +100,11 @@
             margin-bottom: 10px;
         }
 
+        /* 🔵 CSOMAGNEVEK */
         .card h3 {
-            font-size: 1.6rem;
+            font-size: 1.9rem;
             color: #0077cc;
             margin-top: 10px;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 15px 0;
         }
 
         .card ul {
@@ -148,7 +161,6 @@
 <!-- HAVI ELŐFIZETÉSEK -->
 <section class="section">
     <h2>Havi előfizetések</h2>
-
     <div class="cards">
 
         <div class="card">
@@ -164,7 +176,9 @@
 
         <div class="card">
             <h3>Alap</h3>
-            <div class="price">2 490 Ft / hó</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">2 490 Ft / hó</div>
+            <div class="price">1 990 Ft / hó</div>
             <ul>
                 <li>3 vállalkozói csoport</li>
                 <li>Korlátlan időpontfoglalás</li>
@@ -178,7 +192,9 @@
 
         <div class="card">
             <h3>Prémium</h3>
-            <div class="price">3 990 Ft / hó</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">3 990 Ft / hó</div>
+            <div class="price">3 490 Ft / hó</div>
             <ul>
                 <li>Korlátlan vállalkozói csoport</li>
                 <li>Korlátlan időpontfoglalás</li>
@@ -197,14 +213,15 @@
 <!-- ÉVES ELŐFIZETÉSEK -->
 <section class="section">
     <h2>Éves előfizetések</h2>
-
     <div class="cards">
 
         <div class="card">
             <div class="badge">⭐ NÉPSZERŰ CSOMAG ⭐</div>
-            <div class="discount">💙 ~33% kedvezmény a havi díjhoz képest</div>
             <h3>Business</h3>
-            <div class="price">19 990 Ft / év</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">19 990 Ft / év</div>
+            <div class="price">14 990 Ft / év</div>
+            <div class="discount">💙 ~37% kedvezmény a havi díjhoz képest</div>
             <ul>
                 <li>3 vállalkozói csoport</li>
                 <li>Korlátlan időpontfoglalás</li>
@@ -218,9 +235,11 @@
 
         <div class="card">
             <div class="badge">⭐ NÉPSZERŰ CSOMAG ⭐</div>
-            <div class="discount">💙 ~27% kedvezmény a havi díjhoz képest</div>
             <h3>Business Plus</h3>
-            <div class="price">34 990 Ft / év</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">34 990 Ft / év</div>
+            <div class="price">29 990 Ft / év</div>
+            <div class="discount">💙 ~28% kedvezmény a havi díjhoz képest</div>
             <ul>
                 <li>Korlátlan vállalkozói csoport</li>
                 <li>Korlátlan időpontfoglalás</li>
@@ -239,44 +258,62 @@
 <!-- HIRDETÉSI CSOMAGOK -->
 <section class="section">
     <h2>Hirdetési csomagok</h2>
-
     <div class="cards">
 
         <div class="card">
             <h3>Register</h3>
-            <div class="price">19 990 Ft / 30 nap</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">19 990 Ft / 30 nap</div>
+            <div class="price">9 990 Ft / 30 nap</div>
             <ul>
                 <li>Vállalkozásod plakátjának megjelenítése a regisztrációs oldalon</li>
+                <li>Kiemelt vállakozó státuszmegjelölés</li>
                 <li>Hirdetési méret: 50 cm * 14 cm</li>
                 <li>Elkészítheted Te is a saját elképzeléseid szerint a megadott méretben, de akár Ránk is bízhatod.</li>
-                 <li><span style="color: blue"><b><i>Korlátozott számban várólistásan elérhető csomag - </i></b></span><b>2 elérhető hirdetési hely</b></li>
+                <li><span style="color: blue"><b><i>Korlátozott számban várólistásan elérhető csomag - </i></b></span><b>2 elérhető hirdetési hely</b></li>
             </ul>
-            <div class="info">A hirdetés igényléséhez vedd fel velünk a kapcsolatot a <b>hirdetesidomester@gmail.com </b>email címen!</div>
+            <div class="info">
+                A hirdetés igényléséhez vedd fel velünk a kapcsolatot a
+                <b>hirdetesidomester@gmail.com</b> email címen!
+            </div>
         </div>
 
         <div class="card">
             <h3>Login</h3>
-            <div class="price">29 990 Ft / 30 nap</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">29 990 Ft / 30 nap</div>
+            <div class="price">19 990 Ft / 30 nap</div>
             <ul>
                 <li>Vállalkozásod plakátjának megjelenítése a bejelentkezési oldalon</li>
+                <li>Kiemelt vállakozó státuszmegjelölés</li>
                 <li>Hirdetési méret: 50 cm * 14 cm</li>
                 <li>Elkészítheted Te is a saját elképzeléseid szerint a megadott méretben, de akár Ránk is bízhatod.</li>
                 <li><span style="color:blue"><b><i>Korlátozott számban várólistásan elérhető csomag -</i></b></span> <b>2 elérhető hirdetési hely</b></li>
             </ul>
-            <div class="info">A hirdetés igényléséhez vedd fel velünk a kapcsolatot a <b>hirdetesidomester@gmail.com </b> email címen!</div>
+            <div class="info">
+                A hirdetés igényléséhez vedd fel velünk a kapcsolatot a
+                <b>hirdetesidomester@gmail.com</b> email címen!
+            </div>
         </div>
 
         <div class="card">
             <h3>Prime</h3>
-            <div class="price">39 990 Ft / 30 nap</div>
+            <div class="sale">AKCIÓ</div>
+            <div class="old-price">39 990 Ft / 30 nap</div>
+            <div class="price">29 990 Ft / 30 nap</div>
             <ul>
                 <li>Vállalkozásod plakátjának exkluzív megjelenítése a főoldalon</li>
+                <li>Kiemelt vállakozó státuszmegjelölés</li>
                 <li>Hirdetési méret: 50 cm * 14 cm</li>
                 <li>Elkészítheted Te is a saját elképzeléseid szerint a megadott méretben, de akár Ránk is bízhatod.</li>
                 <li><span style="color: blue;"><b><i>Korlátozott számban várólistásan elérhető csomag -</i></b></span><b>1 elérhető hirdetési hely</b></li>
             </ul>
-            <div class="info">A hirdetés igényléséhez vedd fel velünk a kapcsolatot a <b>hirdetesidomester@gmail.com </b>email címen!</div>
+            <div class="info">
+                A hirdetés igényléséhez vedd fel velünk a kapcsolatot a
+                <b>hirdetesidomester@gmail.com</b> email címen!
+            </div>
         </div>
+
     </div>
 </section>
 

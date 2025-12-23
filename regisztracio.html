@@ -103,19 +103,66 @@ button:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
 a {
     color: blue;
 }
 
-@media (max-width: 900px) {
+/* 🔵 MOBILBARÁT – SCROLLMENTES NÉZET */
+@media (max-width: 600px) {
+
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .container {
-        flex-direction: column;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .left, .right {
+        padding: 15px;
+    }
+
+    .left {
+        gap: 10px;
     }
 
     .ad img {
-        max-height: none;
+        max-height: 80px;
+    }
+
+    .right h1 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    input, select {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .switch {
+        margin-top: 10px;
+        font-size: 0.85rem;
+    }
+
+    a {
+        font-size: 0.85rem;
     }
 }
+
 </style>
 </head>
 <body>
@@ -130,13 +177,15 @@ a {
     <div class="right">
         <h1>Regisztráció</h1>
 
-        <form>
-            <input type="text" placeholder="Teljes név" required>
-            <input type="email" placeholder="Email cím" required>
-            <input type="password" placeholder="Jelszó" required>
-            <input type="password" placeholder="Jelszó megerősítése" required>
+        <!-- PHP-hoz kötött űrlap -->
+        <form method="post" action="regisztracio.php">
+            <input type="text" name="nev" placeholder="Teljes név" required>
+            <input type="email" name="email" placeholder="Email cím" required>
+            <input type="password" name="jelszo" placeholder="Jelszó" required>
+            <input type="password" name="jelszo2" placeholder="Jelszó megerősítése" required>
 
-            <select required>
+            <!-- SZEREPKÖR A LEGALJÁN -->
+            <select name="szerepkor" required>
                 <option value="">Válasszon szerepkört</option>
                 <option value="felhasznalo">Felhasználó</option>
                 <option value="vallalkozo">Vállalkozó</option>
@@ -148,8 +197,10 @@ a {
         <div class="switch">
             Van már fiókja? <a href="bejelentkezes.html">Jelentkezzen be!</a>
         </div>
-                <br>
-<a href="araink.html"><b><i>Tekintse meg árainkat!</i></b></a>
+
+        <br>
+
+        <a href="araink.html"><b><i>Tekintse meg árainkat!</i></b></a>
     </div>
 
 </div>
