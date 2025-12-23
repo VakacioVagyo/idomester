@@ -44,10 +44,10 @@ body {
 
 .ad img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
     border-radius: 12px;
-    border: 2px solid #d0e6ff;
 }
 
 /* JOBB OLDAL – FORM */
@@ -103,13 +103,17 @@ button:hover {
     text-decoration: none;
     font-weight: bold;
 }
-
 a {
     color: blue;
 }
+
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
+    }
+
+    .ad img {
+        max-height: none;
     }
 }
 </style>
@@ -118,14 +122,11 @@ a {
 
 <div class="container">
 
-    <!-- BAL OLDAL -->
     <div class="left">
-        <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
         <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
         <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
     </div>
 
-    <!-- JOBB OLDAL -->
     <div class="right">
         <h1>Regisztráció</h1>
 
@@ -135,7 +136,6 @@ a {
             <input type="password" placeholder="Jelszó" required>
             <input type="password" placeholder="Jelszó megerősítése" required>
 
-            <!-- SZEREPKÖR LEGALUL -->
             <select required>
                 <option value="">Válasszon szerepkört</option>
                 <option value="felhasznalo">Felhasználó</option>
@@ -148,8 +148,8 @@ a {
         <div class="switch">
             Van már fiókja? <a href="bejelentkezes.html">Jelentkezzen be!</a>
         </div>
-<br>
-        <a href="araink.html"><b><i>Tekintsd meg az árainkat!</i></b></a>
+                <br>
+<a href="araink.html"><b><i>Tekintse meg árainkat!</i></b></a>
     </div>
 
 </div>

@@ -31,7 +31,7 @@ body {
     overflow: hidden;
 }
 
-/* BAL OLDAL */
+/* BAL OLDAL – HIRDETÉSEK */
 .left {
     flex: 1;
     background: #f4f9ff;
@@ -44,13 +44,13 @@ body {
 
 .ad img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid #d0e6ff;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    border-radius: 12px; /* csak lekerekítés marad */
 }
 
-/* JOBB OLDAL */
+/* JOBB OLDAL – FORM */
 .right {
     flex: 1;
     padding: 40px;
@@ -104,12 +104,17 @@ button:hover {
     font-weight: bold;
 }
 
-a {
-    color: blue;
-}
+        a  {
+            color: blue;
+        }
+
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
+    }
+
+    .ad img {
+        max-height: none;
     }
 }
 </style>
@@ -119,7 +124,6 @@ a {
 <div class="container">
 
     <div class="left">
-        <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
         <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
         <div class="ad"><img src="hirdetes.jpg" alt="Hirdetés"></div>
     </div>
@@ -137,8 +141,9 @@ a {
             Nincs fiókja? <a href="regisztracio.html">Regisztráljon itt!</a>
         </div>
         <br>
-        <a href="araink.html"><b><i>Tekintsd meg az árainkat!</i></b></a>
+<a href="araink.html"><b><i>Tekintse meg árainkat!</i></b></a>
     </div>
+
 
 </div>
 
