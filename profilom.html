@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiókom – IdőMester</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e6f2ff, #ffffff);
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+/* FEJLÉC */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    color: #0077cc;
+}
+
+/* KÁRTYÁK KONTAINER */
+.cards {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* NAGY KIJELZŐ – 3 oszlop */
+@media (min-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card a {
+    text-decoration: none;
+    color: #0077cc;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* MOBIL */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ÜDVÖZLÉS -->
+<div class="header">
+    <h1 id="udvozles">Jó, hogy itt vagy 👋</h1>
+</div>
+
+<!-- KÁRTYÁK -->
+<div class="cards">
+
+    <div class="card">
+        <a href="csoportok.html">👥 CSOPORTJAIM 👥<br><br>
+        <i>A csoportjaim menüpontban könnyedén kezelheted azokat a csoportokat, amelyekhez tartozol!</i></a>
+    </div>
+
+    <div class="card">
+        <a href="ugyfelek.html">🕵️ ÜGYFELEK 🕵️<br><br>
+        <i>Keresd meg az ügyfeleidet és add hozzá a csoportjaidhoz, hogy mindig kapcsolatban legyetek.</i></a>
+    </div>
+
+    <div class="card">
+        <a href="elofizetesek.html">💳 ELŐFIZETÉSEIM 💳<br><br>
+        <i>Az előfizetések menüpontban átláthatod a jelenlegi csomagodat, és bármikor válthatsz, ha többre van szükséged.</i></a>
+    </div>
+
+</div>
+
+<script>
+fetch("profilom.php")
+    .then(response => response.json())
+    .then(data => {
+        if (data.nev) {
+            document.getElementById("udvozles").textContent =
+                "Üdv újra, " + data.nev + "!";
+        }
+    });
+</script>
+
+</body>
+</html>

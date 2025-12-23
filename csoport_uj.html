@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Új csoport</title>
+    <link rel="stylesheet" href="csoport.css">
+</head>
+<body>
+
+<div class="form-kartya">
+    <h2>Új csoport létrehozása</h2>
+
+    <form id="ujCsoportForm">
+        <input name="csoport_nev" placeholder="Csoport neve" required>
+        <input name="tipus" placeholder="Típus" required>
+
+        <textarea name="leiras" maxlength="100"
+            placeholder="Rövid leírás (max. 100 karakter)"></textarea>
+
+        <label>Emoji</label>
+        <select name="emoji">
+            <option>📘</option>
+            <option>🎓</option>
+            <option>🧠</option>
+            <option>💼</option>
+            <option>📊</option>
+            <option>🛠️</option>
+        </select>
+
+        <label>Háttérszín</label>
+        <input type="color" name="hatterszin" value="#34a853">
+
+        <button>Létrehozás</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("ujCsoportForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    fetch("csoport_letrehozas.php", {
+        method: "POST",
+        body: new FormData(e.target)
+    }).then(() => {
+        window.location.href = "csoportok.html";
+    });
+});
+</script>
+
+</body>
+</html>

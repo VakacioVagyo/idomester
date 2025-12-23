@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ügyfél hozzáadása csoporthoz</title>
+
+<style>
+    body {
+        background: #eef6ff;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .box {
+        background: white;
+        width: 95%;
+        max-width: 550px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #0077cc;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 5px;
+        text-align: left;
+    }
+
+    .search-container {
+        position: relative;
+    }
+
+    #ugyfelKereses {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    /* 🔵 TALÁLAT LISTA BALRA IGAZÍTVA */
+    .talalat-lista {
+        position: absolute;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        max-height: 180px;
+        overflow-y: auto;
+        display: none;
+        z-index: 100;
+        text-align: left; /* <<< BALRA IGAZÍTÁS */
+    }
+
+    .talalat {
+        padding: 10px;
+        cursor: pointer;
+        text-align: left; /* <<< Minden sor balra igazítva */
+    }
+
+    .talalat:hover {
+        background: #e6f3ff;
+    }
+
+    select, button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+    }
+
+    button {
+        background: #0077cc;
+        color: white;
+        font-weight: bold;
+        border: none;
+        margin-top: 20px;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #005fa3;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Ügyfél felvétele</h1>
+
+    <!-- ÜGYFÉL KERESÉS -->
+    <label>Ügyfél kiválasztása</label>
+    <div class="search-container">
+        <input type="text" id="ugyfelKereses" placeholder="Kezdje el gépelni a nevet vagy emailt…">
+        <div id="talalatLista" class="talalat-lista"></div>
+    </div>
+
+    <!-- CSOPORT LISTA -->
+    <label>Csoport kiválasztása</label>
+    <select id="csoportLista">
+        <option value="">– válasszon csoportot –</option>
+        <option value="1">Edzés csoport</option>
+        <option value="2">Masszázs csoport</option>
+        <option value="3">Oktatás csoport</option>
+    </select>
+
+    <!-- KÜLDÉS -->
+    <button onclick="hozzaadas()">Hozzáadás a csoporthoz</button>
+</div>
+
+<script>
+let ugyfelek = [];
+let kivalasztottUgyfelID = null;
+
+/* 🔵 1) Ügyfelek betöltése DB-ből */
+fetch("ugyfelek.php")
+    .then(r => r.json())
+    .then(data => ugyfelek = data);
+
+/* 🔵 2) Keresés gépelésre */
+document.getElementById("ugyfelKereses").addEventListener("input", function() {
+    const szoveg = this.value.toLowerCase();
+    const lista = document.getElementById("talalatLista");
+
+    lista.innerHTML = "";
+    if (szoveg.length < 1) {
+        lista.style.display = "none";
+        return;
+    }
+
+    const talalatok = ugyfelek.filter(u =>
+        u.nev.toLowerCase().includes(szoveg) ||
+        u.email.toLowerCase().includes(szoveg)
+    );
+
+    talalatok.forEach(u => {
+        const div = document.createElement("div");
+        div.classList.add("talalat");
+        div.textContent = u.nev + " (" + u.email + ")";
+        div.onclick = () => valasztUgyfel(u);
+        lista.appendChild(div);
+    });
+
+    lista.style.display = talalatok.length ? "block" : "none";
+});
+
+/* 🔵 Ügyfél kiválasztása */
+function valasztUgyfel(u) {
+    document.getElementById("ugyfelKereses").value = u.nev + " (" + u.email + ")";
+    document.getElementById("talalatLista").style.display = "none";
+    kivalasztottUgyfelID = u.id;
+}
+
+/* 🔵 Végleges hozzáadás */
+function hozzaadas() {
+    const csoport = document.getElementById("csoportLista").value;
+
+    if (!kivalasztottUgyfelID) {
+        alert("Válasszon egy ügyfelet!");
+        return;
+    }
+    if (!csoport) {
+        alert("Válasszon csoportot!");
+        return;
+    }
+
+    alert("Ügyfél sikeresen hozzáadva!");
+
+    /* majd később: fetch POST PHP-ba */
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Csoportjaim</title>
+    <link rel="stylesheet" href="csoport.css">
+</head>
+<body>
+
+<header class="fejlec">
+    <h1>Csoportjaim</h1>
+    <a id="ujCsoportBtn" href="csoport_uj.html">+ Új csoport létrehozása</a>
+</header>
+
+<main id="csoportLista" class="kartya-grid"></main>
+
+<script>
+// jogosultság
+fetch("jogosultsag.php")
+    .then(r => r.json())
+    .then(auth => {
+        if (auth.szerepkor !== "vallalkozo") {
+            document.getElementById("ujCsoportBtn").style.display = "none";
+        }
+    });
+
+// csoportok betöltése
+fetch("csoportok_listaja.php")
+    .then(r => r.json())
+    .then(csoportok => {
+        const lista = document.getElementById("csoportLista");
+
+        if (csoportok.length === 0) {
+            lista.innerHTML = "<p>Még nincs egyetlen csoportod sem.</p>";
+            return;
+        }
+
+        csoportok.forEach(cs => {
+            lista.innerHTML += `
+                <div class="kartya" style="--szin:${cs.hatterszin}">
+                    <div class="kartya-fejlec">
+                        <div class="ikon">${cs.emoji}</div>
+                    </div>
+                    <div class="kartya-tartalom">
+                        <h2>${cs.csoport_nev}</h2>
+                        <p class="tipus">${cs.tipus}</p>
+                        <p class="leiras">${cs.leiras ?? ""}</p>
+                    </div>
+                </div>
+            `;
+        });
+    });
+</script>
+
+</body>
+</html>

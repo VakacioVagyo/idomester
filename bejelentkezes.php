@@ -1,6 +1,9 @@
 <?php
 require 'kapcsolat.php';
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -23,10 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("Hibás email vagy jelszó!");
     }
 
-    // Session
-    $_SESSION['user_id'] = $user['id'];
+    // SESSION – EGYSÉGES NÉV!
+    $_SESSION['felhasznalo_id'] = $user['id'];
     $_SESSION['szerepkor'] = $user['szerepkor'];
 
-    header("Location: fiokom.html");
+    header("Location: profilom.html");
     exit;
 }
